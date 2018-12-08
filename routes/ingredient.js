@@ -10,7 +10,7 @@ router
 	})
 	.get('/:id', async (req, res) => {
 		const ingredient = await db.ingredient.findByPk(req.params.id);
-		res.json({ ingrediet });
+		res.json({ ingredient });
 	})
 	.post('/', async (req, res) => {
 		const { name } = req.body;
