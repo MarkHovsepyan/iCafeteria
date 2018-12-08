@@ -10,11 +10,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      date: {
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false,
-        type: Sequelize.DATE
-      },
       customerId: {
         allowNull: false,
         type: Sequelize.INTEGER,
