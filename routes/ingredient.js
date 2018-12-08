@@ -6,7 +6,7 @@ const router = express.Router();
 router
 	.get('/', async (req, res) => {
 		const ingredients = await db.ingredient.findAll();
-		res.json({ ingredient });
+		res.json({ ingredients });
 	})
 	.get('/:id', async (req, res) => {
 		const ingredient = await db.ingredient.findByPk(req.params.id);
