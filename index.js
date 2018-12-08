@@ -1,13 +1,17 @@
-require('dotenv');
 const express = require('express');
-const db = require('./models');
+const bodyParser = require('body-parser');
+require('dotenv');
+
 const PORT = process.env.SERVER_PORT || 8080;
+
+const food = require('./routes/food');
+
 const app = express();
 
 app
-	.get('/', (req, res) => {
-		res.json({ message: 'hello world' });
-	})
+	.use(bodyParser.urlencoded({ extended: true }))
+	.use(bodyParser.json({ type: 'application/json' }))
+	.use('/food', food)
 	.listen(PORT, () => {
 		console.log(`Listening on port ${PORT}`);
 	});

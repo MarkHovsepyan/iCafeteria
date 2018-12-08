@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     name: DataTypes.STRING
-  }, {});
+  }, {
+      timestamps: false,
+    });
   Food.associate = function (models) {
     // associations can be defined here
   };

@@ -8,7 +8,7 @@ module.exports = {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            dateTime: Sequelize.TIMESTAMP,
+            dateTime: Sequelize.DATE,
             customerId: {
                 type: Sequelize.INTEGER,
                 references: {
