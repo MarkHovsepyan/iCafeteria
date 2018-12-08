@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js & ngrok http 8080"
+    "dev": "nodemon index.js",
+    "tunnel": "ngrok http 8080"
   },
   "license": "ISC"
 }

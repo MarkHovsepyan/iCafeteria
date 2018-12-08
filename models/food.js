@@ -1,17 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Food = sequelize.define('Food', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: DataTypes.STRING
-  }, {
-      timestamps: false,
-    });
-  Food.associate = function (models) {
-    // associations can be defined here
+  const food = sequelize.define('food', {
+    name: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    description: DataTypes.STRING,
+    categoryId: DataTypes.INTEGER
+  }, {});
+  food.associate = function (models) {
+    models.food.belongsTo(models.category);
+    models.food.belongsToMany(models.ingredients, { through: models.foodIngredients });
   };
-  return Food;
+  return food;
 };
