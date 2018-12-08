@@ -5,9 +5,12 @@ const router = express.Router();
 
 router
 	.get('/', async (req, res) => {
-		console.log('getting food')
 		const foods = await db.Food.findAll();
 		res.json({ foods });
+	})
+	.get('/:id', async (req, res) => {
+		const food = await db.Food.findByPk(req.params.id);
+		res.json({ food });
 	})
 	.post('/', async (req, res) => {
 		const { name } = req.body;
