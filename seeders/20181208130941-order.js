@@ -10,7 +10,7 @@ module.exports = {
       .map(() => {
         return {
           customerId: getRandomCustomerId()
-        }
+        };
       });
     return db.order.bulkCreate(orders);
   },
