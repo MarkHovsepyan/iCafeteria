@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     foodId: DataTypes.INTEGER,
     orderId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER
-  }, {});
+  }, {
+      freezeTableName: true
+    });
   orderDetail.associate = function (models) {
     models.orderDetail.belongsTo(models.order);
     models.orderDetail.belongsTo(models.food);

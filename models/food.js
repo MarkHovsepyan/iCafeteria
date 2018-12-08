@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     description: DataTypes.STRING,
     categoryId: DataTypes.INTEGER
-  }, {});
+  }, {
+      freezeTableName: true
+    });
   food.associate = function (models) {
     models.food.belongsTo(models.category);
     models.food.belongsToMany(models.ingredient, { through: models.foodIngredient });
