@@ -12,6 +12,13 @@ router
     const food = await db.food.findByPk(req.params.id);
     res.json({ food });
   })
+  .get('/byCategory/:categoryId', async (req, res) => {
+    const foods = await db.food.findAll({
+      where: { categoryId: req.params.categoryId },
+      include: [{ model: db.category, as: 'category' }]
+    });
+    res.json({ foods });
+  })
   .post('/', async (req, res) => {
     const { name } = req.body;
     const food = await db.food.create({ name });
