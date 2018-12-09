@@ -65,7 +65,7 @@ class HomeScreen extends Component {
             }
           </Picker>
         </View>
-        <View>
+        <View style={{ height: 450 }}>
           <FlatList
             data={foods}
             renderItem={HomeScreen.Food}
