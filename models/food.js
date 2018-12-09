@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   food.associate = function (models) {
     models.food.belongsTo(models.category, { foreignKey: 'categoryId', targetKey: 'id', as: 'category' });
-    models.food.belongsToMany(models.ingredient, { through: models.foodIngredient });
+    models.food.belongsToMany(models.ingredient, { through: models.foodIngredient, as: 'ingredients' });
   };
   return food;
 };
