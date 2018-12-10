@@ -4,9 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     foodName: DataTypes.STRING,
     isVegan: DataTypes.BOOLEAN
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false,
   });
-  veganView.associate = function(models) {
+  veganView.associate = function (models) {
     // associations can be defined here
   };
   return veganView;
