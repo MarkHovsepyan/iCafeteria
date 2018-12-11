@@ -10,14 +10,14 @@ module.exports = {
     ]);
     const getRandomFoodId = () => foods[Math.floor(Math.random() * foods.length)].id;
     const getRandomIngredientId = () => ingredients[Math.floor(Math.random() * ingredients.length)].id;
-    const foodIngredients = new Array(10)
+    const foodIngredients = new Array(100)
       .fill(null)
       .map(() => {
         return {
           foodId: getRandomFoodId(),
           ingredientId: getRandomIngredientId(),
           quantity: Math.ceil(Math.random() * 10)
-        }
+        };
       });
     const uniqueFoodIngredients = uniqBy(foodIngredients, fi => [fi.foodId, fi.ingredientId].join());
     return db.foodIngredient.bulkCreate(uniqueFoodIngredients);
